@@ -1,0 +1,2 @@
+ALTER TABLE "poll" DROP CONSTRAINT "poll_max_choices_check";--> statement-breakpoint
+ALTER TABLE "poll" ADD CONSTRAINT "poll_max_choices_check" CHECK ("poll"."max_choices" >= 1 AND "poll"."max_choices" <= 10);

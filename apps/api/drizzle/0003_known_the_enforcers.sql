@@ -1,0 +1,1 @@
+ALTER TABLE "poll_voter" ADD CONSTRAINT "poll_voter_poll_token_unique" UNIQUE("poll_id","token_hash");
