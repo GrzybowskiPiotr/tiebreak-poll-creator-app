@@ -1,3 +1,4 @@
+export * from "./auth-schema.js";
 export * from "./catalogOption.js";
 export * from "./optionCatalog.js";
 export * from "./poll.js";

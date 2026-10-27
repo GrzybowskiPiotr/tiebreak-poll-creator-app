@@ -1,0 +1,21 @@
+html {
+  height: 100%;
+}
+body {
+  font-size: 16px;
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-cocoa);
+  padding: 0 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: var(--page-max-width);
+}

@@ -1,0 +1,30 @@
+.hamburder {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+}
+
+.burger {
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  background-color: black;
+  transform-origin: 1px;
+  transition:
+    transform 0.3s linear,
+    opacity 0.1s linear,
+    translateX 0.3s linear;
+}
+
+.burger.open.burger1 {
+  transform: rotate(45deg);
+}
+.burger.open.burger2 {
+  transform: translate(100%);
+  opacity: 0;
+}
+.burger.open.burger3 {
+  transform: rotate(-45deg);
+}

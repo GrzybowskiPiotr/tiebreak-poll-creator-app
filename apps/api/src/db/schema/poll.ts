@@ -5,10 +5,12 @@ import {
   integer,
   pgEnum,
   pgTable,
+  text,
   timestamp,
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
+import {user} from "./auth-schema.js";
 
 export const poll_status = pgEnum("poll_status", [
   "open",
@@ -20,10 +22,9 @@ export const poll = pgTable(
   "poll",
   {
     id: uuid("id").defaultRandom().primaryKey(),
-    user_id: uuid("user_id")
-      // .references(() => user.id)
+    user_id: text("user_id")
+      .references(() => user.id, {onDelete: "cascade"})
       .notNull(),
-    // .references(() => user.id), referencja do tabeli z betterAuth do zrobienia po wdrożeniu abetteraUth
     title: varchar({length: 100}).notNull(),
     max_choices: integer("max_choices").notNull(),
     close_at: timestamp({withTimezone: true}).notNull(),

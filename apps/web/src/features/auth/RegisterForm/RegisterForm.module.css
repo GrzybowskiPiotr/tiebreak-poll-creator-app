@@ -1,0 +1,39 @@
+.formContainer {
+  width: fit-content;
+  height: fit-content;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: burlywood;
+  color: black;
+  border: none;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+}
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+}
+.formContainer form button {
+  margin-top: 1.5rem;
+  background-color: azure;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.formContainer form button:hover {
+  transform: scale(1.05);
+}
+.formContainer form input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+}

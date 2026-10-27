@@ -1,0 +1,48 @@
+.buttonContainer {
+  display: flex;
+  padding: 1rem 0rem;
+  transition: transform 0.3s;
+  justify-content: space-between;
+}
+
+.buttonContainer a {
+  background-color: azure;
+  padding: 0.5rem 2rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+
+  transition: transform 0.3s;
+}
+.buttonContainer a:hover {
+  transform: scale(1.05);
+}
+
+.welcomeContainer {
+  background-color: burlywood;
+  width: 20rem;
+  height: fit-content;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  text-align: left;
+}
+.welcomeContainer h2 {
+  color: black;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+.welcomeContainer button {
+  background-color: azure;
+  padding: 0.5rem 2rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.welcomeContainer button:hover {
+  transform: scale(1.05);
+}

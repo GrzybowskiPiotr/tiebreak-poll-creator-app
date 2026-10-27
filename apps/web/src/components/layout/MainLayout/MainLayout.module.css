@@ -1,0 +1,15 @@
+.appContainer {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: clip;
+}
+.outletContener {
+  flex-grow: 1;
+}
+header,
+footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+}

@@ -1,0 +1,20 @@
+.button {
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: var(--font-bold);
+  font-family: var(--font-display);
+  letter-spacing: 1.05px;
+  font-size: var(--text-md);
+}
+.primary {
+  color: var(--color-cream-bright);
+  background-color: var(--color-tangerine);
+}
+.outline {
+  color: var(--color-cocoa);
+  border-color: var(--color-cocoa);
+  border-width: 2.5px;
+  border-style: solid;
+}

@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logo {
+  width: var(--text-lg);
+  height: var(--text-lg);
+  padding: 0.125rem;
+  border: 0.2rem solid var(--color-cocoa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-tangerine);
+  border-radius: 50%;
+}
+.logo span {
+  color: var(--color-cream-bright);
+  font-size: 3em;
+  font-weight: bold;
+}
+.container p {
+  padding: 0.5rem;
+  font-weight: var(--font-black);
+
+  font-size: var(--text-lg);
+}

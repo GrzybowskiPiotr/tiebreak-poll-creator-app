@@ -1,0 +1,34 @@
+.formContainer {
+  width: fit-content;
+  height: fit-content;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: burlywood;
+  color: black;
+  border: none;
+  border-radius: 0.5rem;
+}
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  text-transform: capitalize;
+}
+.formContainer form button {
+  margin-top: 1.5rem;
+  background-color: azure;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+.formContainer h2 {
+  text-transform: capitalize;
+}
+.formContainer input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+}
