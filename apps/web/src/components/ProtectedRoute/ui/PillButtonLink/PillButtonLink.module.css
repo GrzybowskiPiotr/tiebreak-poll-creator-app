@@ -7,6 +7,19 @@
   font-family: var(--font-display);
   letter-spacing: 1.05px;
   font-size: var(--text-md);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-6px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 .primary {
   color: var(--color-cream-bright);
@@ -17,4 +30,7 @@
   border-color: var(--color-cocoa);
   border-width: 2.5px;
   border-style: solid;
+}
+.button:active {
+  transform: translateY(-1px) scale(0.96);
 }

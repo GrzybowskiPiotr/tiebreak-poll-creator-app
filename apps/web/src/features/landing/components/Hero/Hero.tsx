@@ -1,9 +1,9 @@
-import {PillButtonLink} from "../../../../components/ui/PillButtonLink/PillButtonLink";
+import {PillButtonLink} from "../../../../components/ProtectedRoute/ui/PillButtonLink/PillButtonLink";
 import style from "./Hero.module.css";
 import rays from "/images/yellowRays.png";
 export function Hero() {
   return (
-    <div className={style.container}>
+    <div className={style.heroContainer}>
       <p>make decisions together</p>
       <div className={style.heroTextConteiner}>
         <h1>Can’t decide? Let your people pick.</h1>

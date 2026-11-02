@@ -1,0 +1,22 @@
+.desktopNav ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.desktopNav ul li a {
+  padding: 0.5rem 1rem;
+}
+.desktopNav ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.desktopNav {
+  width: 100%;
+  height: 100%;
+}

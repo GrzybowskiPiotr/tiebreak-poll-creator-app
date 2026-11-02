@@ -1,6 +1,8 @@
 import {useEffect, useRef, useState} from "react";
+import {DesktopMenu} from "../DesktopMenu/DesktopMenu";
 import {Hamburger} from "../Hamburger/Hamburger";
 import {SideMenu} from "../SideMenu/SideMenu";
+import style from "./userMenu.module.css";
 export interface menuItems {
   title: string;
   path: string;
@@ -42,13 +44,18 @@ export function UserMenu() {
   }, [open]);
 
   return (
-    <div ref={menuRef}>
-      <Hamburger handleClick={onClickHandler} isOpen={open} />
-      <SideMenu
-        isOpen={open}
-        menuItemsprops={menuItems}
-        onClose={handleClose}
-      />
-    </div>
+    <>
+      <div className={style.DesktopMenu}>
+        <DesktopMenu menuItems={menuItems} />
+      </div>
+      <div ref={menuRef} className={style.hamburgerContainer}>
+        <Hamburger handleClick={onClickHandler} isOpen={open} />
+        <SideMenu
+          isOpen={open}
+          menuItemsprops={menuItems}
+          onClose={handleClose}
+        />
+      </div>
+    </>
   );
 }

@@ -2,8 +2,8 @@ footer {
   flex-shrink: 0;
   text-align: center;
   background-color: var(--color-cream-deep);
-
-  /* width: 100vw; */
+  position: relative;
+  bottom: 0;
 }
 footer a {
   text-decoration: none;

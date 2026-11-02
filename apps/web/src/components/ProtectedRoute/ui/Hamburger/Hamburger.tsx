@@ -6,7 +6,7 @@ interface props {
 
 export function Hamburger({handleClick, isOpen}: props) {
   return (
-    <div className={style.hamburder} onClick={handleClick}>
+    <div className={style.hamburger} onClick={handleClick}>
       <div
         className={`${style.burger} ${style.burger1} ${isOpen && style.open}`}
       ></div>

@@ -6,7 +6,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.11.2",
+      "version": "12.16.1",
       "onFail": "download"
     }
   },
@@ -14,7 +14,7 @@
     "dev:web": "pnpm --filter web dev",
     "dev:api": "pnpm --filter api dev"
   },
-  "packageManager": "pnpm@12.11.2",
+  "packageManager": "pnpm@12.16.1",
   "type": "module",
   "private": true
 }

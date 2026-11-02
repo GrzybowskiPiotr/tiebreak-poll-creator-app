@@ -1,0 +1,20 @@
+.hamburgerContainer {
+  position: relative;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.DesktopMenu {
+  display: none;
+}
+
+@media (width > 998px) {
+  .hamburgerContainer {
+    display: none;
+  }
+  .DesktopMenu {
+    display: block;
+    min-width: 40%;
+  }
+}

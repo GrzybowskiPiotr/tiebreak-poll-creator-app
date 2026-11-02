@@ -25,3 +25,24 @@
 .titleContainer p {
   max-width: 85%;
 }
+@media (width>767px) {
+  .featuresContainer {
+    margin-top: 4rem;
+  }
+  .featuresContainer ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .itemContainer {
+    flex-direction: column;
+  }
+  .titleContainer {
+    max-width: none;
+  }
+  .titleContainer h2 {
+    font-size: var(--text-lg);
+  }
+  .titleContainer p {
+    font-size: var(--text-md);
+  }
+}

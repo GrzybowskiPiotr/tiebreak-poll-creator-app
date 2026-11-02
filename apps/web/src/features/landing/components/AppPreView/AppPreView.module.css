@@ -2,3 +2,14 @@
   width: 90%;
   margin-top: 2rem;
 }
+@media (width > 992px) {
+  .imgContainer {
+    width: 130%;
+    margin-top: 0;
+  }
+  .imgContainer img {
+    position: relative;
+    top: 2rem;
+    right: 4rem;
+  }
+}

@@ -22,6 +22,14 @@
 .container p {
   padding: 0.5rem;
   font-weight: var(--font-black);
-
   font-size: var(--text-lg);
+}
+@media (width>760px) {
+  .logo {
+    width: var(--text-xl);
+    height: var(--text-xl);
+  }
+  .container p {
+    font-size: var(--text-xl);
+  }
 }

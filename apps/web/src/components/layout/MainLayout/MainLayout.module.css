@@ -1,9 +1,10 @@
 .appContainer {
-  min-height: 95vh;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow-x: clip;
+  width: 100%;
+  min-height: 100vh;
 }
 .outletContener {
   flex-grow: 1;
