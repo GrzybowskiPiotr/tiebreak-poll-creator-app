@@ -3,9 +3,9 @@
   list-style: none;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-around;
   align-items: center;
   height: 100%;
+  gap: 1rem;
 }
 
 .desktopNav ul li a {

@@ -1,7 +1,7 @@
 import {useState} from "react";
 
+import {FormContainer} from "../../../components/ui/FormContainer/FormContainer";
 import {authClient} from "../../../lib/auth-client";
-import style from "./RegisterForm.module.css";
 export function RegisterForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ export function RegisterForm() {
   }
 
   return (
-    <div className={style.formContainer}>
+    <FormContainer>
       <h2>sign up</h2>
       <form onSubmit={submitHandler}>
         <label>
@@ -56,6 +56,6 @@ export function RegisterForm() {
         </label>
         <button type='submit'>SignUp</button>
       </form>
-    </div>
+    </FormContainer>
   );
 }

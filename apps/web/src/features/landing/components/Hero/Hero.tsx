@@ -1,4 +1,4 @@
-import {PillButtonLink} from "../../../../components/ProtectedRoute/ui/PillButtonLink/PillButtonLink";
+import {PillButtonLink} from "../../../../components/ui/PillButtonLink/PillButtonLink";
 import style from "./Hero.module.css";
 import rays from "/images/yellowRays.png";
 export function Hero() {

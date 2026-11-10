@@ -1,0 +1,75 @@
+.formContainer {
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  transform: translateY(8rem);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-card);
+  color: var(--color-cocoa);
+  border: var(--border-card) solid var(--color-cocoa);
+  border-radius: var(--radius-lg);
+}
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-transform: capitalize;
+}
+.formContainer form button {
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+.formContainer h2 {
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  color: var(--color-teal-deep);
+}
+.formContainer input {
+  padding: 1rem;
+  border: var(--border-card) solid var(--color-teal);
+  border-radius: var(--radius-full);
+  margin-top: 0.5rem;
+  color: var(--color-teal-deep);
+}
+.formContainer input:focus {
+  outline: var(--focus-ring);
+}
+.formContainer label {
+  font-weight: bolder;
+}
+.formContainer button {
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: var(--font-bold);
+  font-family: var(--font-display);
+  letter-spacing: 1.05px;
+  font-size: var(--text-md);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    backdrop-filter 0.25s ease;
+  cursor: pointer;
+  color: var(--color-cream-bright);
+  background-color: var(--color-tangerine);
+}
+
+.formContainer button:hover {
+  transform: translateY(-6px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.formContainer button:active {
+  transform: translateY(-1px) scale(0.96);
+}

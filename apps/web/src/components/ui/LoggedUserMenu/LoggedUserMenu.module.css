@@ -1,0 +1,15 @@
+.navContainer {
+  justify-content: space-between;
+  margin-left: 1rem;
+}
+.desktop {
+  display: none !important;
+}
+@media (width>990px) {
+  .mobile {
+    display: none !important;
+  }
+  .desktop {
+    display: flex !important;
+  }
+}
