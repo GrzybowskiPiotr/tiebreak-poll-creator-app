@@ -1,18 +1,19 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {FormContainer} from "../../../components/ui/FormContainer/FormContainer";
 import {authClient} from "../../../lib/auth-client";
-import style from "./LoginForm.module.css";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   async function submitHandler(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = {password, email};
     const {data, error} = await authClient.signIn.email(formData);
 
     if (data) {
-      navigate("/");
+      navigate("/polls");
     }
 
     if (error) {
@@ -22,7 +23,7 @@ export function LoginForm() {
   }
 
   return (
-    <div className={style.formContainer}>
+    <FormContainer>
       <h2>sign in</h2>
       <form onSubmit={submitHandler}>
         <label>
@@ -33,6 +34,7 @@ export function LoginForm() {
             name='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoComplete='email'
           />
         </label>
         <label>
@@ -43,10 +45,11 @@ export function LoginForm() {
             name='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autoComplete='current-password'
           />
         </label>
-        <button type='submit'>SignIn</button>
+        <button type='submit'>Sign In</button>
       </form>
-    </div>
+    </FormContainer>
   );
 }

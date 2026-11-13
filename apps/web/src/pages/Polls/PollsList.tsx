@@ -1,5 +1,4 @@
-import {Navigate} from "react-router-dom";
-import {Loading} from "../../components/ProtectedRoute/ui/Loading/Loading";
+import {Loading} from "../../components/ui/Loading/Loading";
 import {usePolls} from "../../features/polls/hooks/usePolls";
 import {authClient} from "../../lib/auth-client";
 export function PollsList() {
@@ -35,25 +34,10 @@ export function PollsList() {
         {polls.data.length === 0 ? (
           <div>
             <h3>You haven't created any polls yet.</h3>
-            <button
-              onClick={() => {
-                <Navigate to='polls/new' />;
-              }}
-            >
-              Create new Poll
-            </button>
           </div>
         ) : (
           <p>Polls List</p>
         )}
-
-        <button
-          onClick={() => {
-            authClient.signOut();
-          }}
-        >
-          Sing out
-        </button>
       </div>
     </>
   );

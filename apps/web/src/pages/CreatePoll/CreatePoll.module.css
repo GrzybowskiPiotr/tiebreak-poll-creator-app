@@ -1,0 +1,67 @@
+.creatorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.creatorContainer h1 {
+  font-family: "Gabarito";
+  font-size: 2.5rem;
+  font-weight: var(--font-bold);
+}
+.creatorContainer h2 {
+  font-size: var(--text-base);
+  font-weight: bold;
+}
+.creatorContainer form {
+  max-width: var(--form-max-width);
+  display: flex;
+  flex-direction: column;
+  font-family: "Karla";
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.card {
+  border: var(--border-card) solid var(--color-cocoa);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: var(--color-card);
+}
+.card h3 {
+  border: none;
+  display: block;
+  width: fit-content;
+  font-size: var(--text-xs);
+  padding: 0.1rem 0.5rem;
+  background-color: var(--color-butter);
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+}
+.card label {
+  font-size: var(--text-md);
+  font-weight: bold;
+}
+.card label span {
+  color: var(--color-tangerine);
+}
+.card textarea {
+  width: 100%;
+  border: var(--border-chip) solid var(--color-cocoa);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  background-color: inherit;
+  margin-top: 0.5rem;
+}
+.card textarea:focus {
+  outline: none;
+  border: var(--focus-ring);
+}
+.card .charactersLeft {
+  text-align: right;
+}
+.creatorContainer form ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}

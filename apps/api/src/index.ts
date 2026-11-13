@@ -1,4 +1,4 @@
-import {toNodeHandler} from "better-auth/node";
+import {fromNodeHeaders, toNodeHandler} from "better-auth/node";
 import express from "express";
 import {auth} from "./auth.js";
 import pollRouter from "./routes/polls.routes.js";
@@ -15,7 +15,9 @@ app.get("/api/health", (req, res) => {
 app.use("/api/polls", pollRouter);
 
 app.get("/api/me", async (req, res) => {
-  const session = await auth.api.getSession({headers: req.headers});
+  const session = await auth.api.getSession({
+    headers: fromNodeHeaders(req.headers),
+  });
   if (!session) {
     return res.sendStatus(401);
   }
