@@ -53,6 +53,15 @@
   background-color: inherit;
   margin-top: 0.5rem;
 }
+.card textarea:focus {
+  outline: none;
+  border: var(--focus-ring);
+}
 .card .charactersLeft {
   text-align: right;
+}
+.creatorContainer form ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
 }

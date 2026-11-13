@@ -1,0 +1,27 @@
+.optionInput {
+  display: flex;
+  align-items: center;
+}
+.optionInput input {
+  width: 100%;
+  border: var(--border-chip) solid var(--color-cocoa);
+  border-radius: var(--radius-md);
+  padding: 0.3rem;
+  background-color: inherit;
+}
+.optionInput input:focus {
+  outline: none;
+  border: var(--focus-ring);
+}
+.optionInput button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+}
+.optionInput button.dragButton {
+  cursor: grab;
+}

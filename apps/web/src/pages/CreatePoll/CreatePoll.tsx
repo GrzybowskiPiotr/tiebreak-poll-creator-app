@@ -1,9 +1,12 @@
-import {useForm, useWatch, type Control} from "react-hook-form";
+import {useFieldArray, useForm, useWatch, type Control} from "react-hook-form";
+import {OptionInput} from "../../components/ui/OptionInput/OptionInput";
 import style from "./CreatePoll.module.css";
 
 interface FormInputs {
   pollName: string;
+  options: {name: string}[];
 }
+
 function TextAreaWatch({control}: {control: Control<FormInputs>}) {
   const pollName = useWatch({
     control,
@@ -19,7 +22,15 @@ export function CreatePoll() {
     control,
     formState: {errors},
   } = useForm<FormInputs>({
-    defaultValues: {pollName: "New Poll"},
+    defaultValues: {
+      pollName: "New Poll",
+      options: [{name: "pizza"}, {name: "burgers"}],
+    },
+  });
+
+  const {fields, remove} = useFieldArray({
+    name: "options",
+    control,
   });
 
   return (
@@ -51,6 +62,16 @@ export function CreatePoll() {
         </div>
         <div className={style.card}>
           <h3>The options</h3>
+
+          {fields.map((field, index) => {
+            return (
+              <OptionInput
+                registration={register(`options.${index}.name`)}
+                removeBattonClik={() => remove(index)}
+                key={field.id}
+              />
+            );
+          })}
         </div>
         <button type='submit'>
           Create Poll{" "}
