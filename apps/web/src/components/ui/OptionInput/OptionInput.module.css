@@ -7,7 +7,7 @@
   border: var(--border-chip) solid var(--color-cocoa);
   border-radius: var(--radius-md);
   padding: 0.3rem;
-  background-color: inherit;
+  background-color: var(--color-cream);
 }
 .optionInput input:focus {
   outline: none;
@@ -17,7 +17,7 @@
   width: 44px;
   height: 44px;
   border: none;
-  background-color: transparent;
+  background-color: var(--color-card);
   cursor: pointer;
   font-size: var(--text-xl);
   flex-shrink: 0;
