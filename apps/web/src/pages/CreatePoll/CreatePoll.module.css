@@ -28,7 +28,9 @@
   width: 100%;
   background-color: var(--color-card);
 }
-.card h3 {
+.card .title {
+  position: relative;
+  top: -1.25rem;
   border: none;
   display: block;
   width: fit-content;
@@ -37,6 +39,21 @@
   background-color: var(--color-butter);
   border-radius: var(--radius-full);
   margin-bottom: 0.5rem;
+}
+.creatorContainer .optionsGroup {
+  border: var(--border-card) solid var(--color-cocoa);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1rem 1rem;
+  width: 100%;
+  min-width: 0;
+  background-color: var(--color-card);
+}
+.optionsGroup legend {
+  font-size: var(--text-xs);
+  padding: 0.1rem 0.5rem;
+  background-color: var(--color-butter);
+  border-radius: var(--radius-full);
+  font-weight: bold;
 }
 .card label {
   font-size: var(--text-md);
@@ -71,4 +88,117 @@
 .errorMessage {
   font-weight: var(--font-bold);
   margin: 0.5rem;
+}
+.optionsGroup.voteStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.optionsGroup.voteStyle .card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s;
+}
+.optionsGroup.voteStyle input {
+  appearance: none;
+}
+.optionsGroup.voteStyle input::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  border: solid var(--color-cocoa);
+}
+.optionsGroup.voteStyle input:checked::before {
+  content: "✓";
+  position: relative;
+
+  font-size: var(--text-lg);
+  color: var(--color-cream-deep);
+  border: var(--focus-ring);
+  background-color: var(--color-teal);
+}
+.optionsGroup.voteStyle label:has(input:checked) {
+  color: var(--color-cocoa-soft);
+  border-color: var(--color-teal);
+  background-color: var(--color-teal-soft);
+}
+.optionsGroup.voteColseDateTime {
+  display: flex;
+  flex-direction: column;
+}
+.optionsGroup.voteColseDateTime .inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+.optionsGroup.voteColseDateTime .inputContainer span {
+  color: var(--color-tangerine);
+}
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+}
+.switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.switch input {
+  appearance: none;
+}
+
+.slider {
+  background-color: var(--color-cream-deep);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: var(--color-teal);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.formButtonsContainer {
+  display: flex;
+  background-color: var(--color-cream-deep);
+  justify-content: space-around;
+  border-radius: var(--radius-md);
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+.formButtonsContainer .cancel {
+  padding: 0.5rem 1rem;
 }

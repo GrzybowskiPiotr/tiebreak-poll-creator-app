@@ -1,28 +1,30 @@
 import style from "./PillButton.module.css";
 
 interface ComponentProps {
-  text: string;
+  children: React.ReactNode;
   variant?: "primary" | "outline";
   className?: string;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
   isDisabled?: boolean;
+  type?: React.ComponentProps<"button">["type"];
 }
 
 export function PillButton({
   onClickHandler,
   variant = "primary",
   className,
-  text,
+  children,
+  type = "button",
   isDisabled = false,
 }: ComponentProps) {
   return (
     <button
       className={`${style.button} ${className ?? ""} ${style[variant]}`}
-      type='button'
+      type={type}
       disabled={isDisabled}
       onClick={onClickHandler}
     >
-      {text}
+      {children}
     </button>
   );
 }

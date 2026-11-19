@@ -3,11 +3,16 @@ import {isSortable} from "@dnd-kit/react/sortable";
 import {useFieldArray, useForm, useWatch, type Control} from "react-hook-form";
 import {OptionInput} from "../../components/ui/OptionInput/OptionInput";
 import {PillButton} from "../../components/ui/PillButton/PillButton";
+import {PillButtonLink} from "../../components/ui/PillButtonLink/PillButtonLink";
 import style from "./CreatePoll.module.css";
 
 interface FormInputs {
   pollName: string;
   options: {name: string}[];
+  pollType: "single" | "multiple";
+  closingDate: string;
+  closingTime: string;
+  suggestions: boolean;
 }
 
 function TextAreaWatch({control}: {control: Control<FormInputs>}) {
@@ -18,6 +23,9 @@ function TextAreaWatch({control}: {control: Control<FormInputs>}) {
 
   return pollName.length;
 }
+
+const date = new Date();
+
 export function CreatePoll() {
   const {
     register,
@@ -30,6 +38,9 @@ export function CreatePoll() {
     defaultValues: {
       pollName: "New Poll",
       options: [{name: "pizza"}, {name: "burgers"}],
+      pollType: "single",
+      closingDate: `${date.getFullYear()}-${date.getMonth()}-${date.getDate() + 1}`,
+      closingTime: `${date.getHours() + 1}:${String(date.getMinutes()).padStart(2, "0")}`,
     },
   });
 
@@ -58,7 +69,7 @@ export function CreatePoll() {
       <h2>Get the crew togetther and let them decide.</h2>
       <form onSubmit={handleSubmit((data) => console.log(data))}>
         <div className={style.card}>
-          <h3>The question</h3>
+          <h3 className={style.title}>The question</h3>
           <label htmlFor='pollName'>
             What are we deciding?<span>*</span>
           </label>
@@ -83,8 +94,8 @@ export function CreatePoll() {
           </p>
           {errors.pollName && <p role='alert'>{errors.pollName.message}</p>}
         </div>
-        <div className={style.card}>
-          <h3>The options</h3>
+        <fieldset className={style.optionsGroup}>
+          <legend className={style.title}>The options</legend>
           <DragDropProvider
             onDragEnd={(event) => {
               if (event.canceled) return;
@@ -125,18 +136,100 @@ export function CreatePoll() {
           )}
           <PillButton
             onClickHandler={() => append({name: ""})}
-            text={`+ Add an option ${fields.length}/${MAX_ITEMS}`}
             variant='outline'
             isDisabled={fields.length >= MAX_ITEMS}
-          />
+          >{`+ Add an option ${fields.length}/${MAX_ITEMS}`}</PillButton>
+        </fieldset>
+        <fieldset className={`${style.optionsGroup} ${style.voteStyle}`}>
+          <legend className={style.title}>How should your crew vote ?</legend>
+          <label className={style.card} htmlFor='option1'>
+            <input
+              type='radio'
+              id='option1'
+              value='single'
+              {...register("pollType")}
+            />
+            <div>
+              <h3> Pick one</h3>
+              <p>Vote for a single option</p>
+            </div>
+          </label>
+          <label className={style.card} htmlFor='option2'>
+            <input
+              type='radio'
+              id='option2'
+              value='multiple'
+              {...register("pollType")}
+            />
+            <div>
+              <h3> Pick up to...</h3>
+              <p>Let everyone choose up to N optons</p>
+            </div>
+          </label>
+        </fieldset>
+        <fieldset
+          className={`${style.optionsGroup} ${style.voteColseDateTime}`}
+        >
+          <legend>When should voting close?</legend>
+          <div className={`${style.inputContainer}`}>
+            <label htmlFor='date'>
+              Closing date<span>*</span>
+            </label>
+            <input
+              type='date'
+              id='date'
+              {...register("closingDate")}
+              className={`${style.card}`}
+            />
+          </div>
+          <div className={`${style.inputContainer}`}>
+            <label htmlFor='time'>
+              Closing time<span>*</span>
+            </label>
+            <input
+              type='time'
+              id='time'
+              {...register("closingTime")}
+              className={`${style.card}`}
+            />
+          </div>
+        </fieldset>
+        {/* suggest options  */}
+        <div className={style.card}>
+          <h3 className={style.title}>Let the crew suggest options</h3>
+          <div className={style.checkbox}>
+            <p>
+              Your crew can suggest ideas. <br />
+              You decide what makes the ballot
+            </p>
+            <div>
+              <label className={style.switch} htmlFor='checkbox'>
+                <input
+                  type='checkbox'
+                  id='checkbox'
+                  {...register("suggestions")}
+                />
+                <div className={`${style.slider} ${style.round}`}></div>
+              </label>
+            </div>
+          </div>
         </div>
-
-        <button type='submit'>
-          Create Poll{" "}
-          <span>
-            <i className='fa-solid fa-arrow-right'></i>
-          </span>
-        </button>
+        {/* suggest option */}
+        <div className={style.formButtonsContainer}>
+          <PillButtonLink
+            to='/polls'
+            variant='outline'
+            className={style.cancel}
+          >
+            Cancel
+          </PillButtonLink>
+          <PillButton isDisabled={false} type='submit'>
+            Create Poll{" "}
+            <span>
+              <i className='fa-solid fa-arrow-right'></i>
+            </span>
+          </PillButton>
+        </div>
       </form>
     </div>
   );
