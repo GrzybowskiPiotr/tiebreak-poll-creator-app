@@ -25,6 +25,10 @@ app.get("/api/me", async (req, res) => {
   return res.json({user: session.user});
 });
 
+app.post("/api/polls", (req, res) => {
+  console.log(req);
+});
+
 app.listen(PORT, () => {
   console.log(`API running at http://localhost:${PORT}`);
 });

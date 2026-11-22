@@ -24,7 +24,8 @@ function TextAreaWatch({control}: {control: Control<FormInputs>}) {
   return pollName.length;
 }
 
-const date = new Date();
+const defaultDateAndTime = new Date();
+defaultDateAndTime.setHours(defaultDateAndTime.getHours() + 1);
 
 export function CreatePoll() {
   const {
@@ -35,12 +36,13 @@ export function CreatePoll() {
   } = useForm<FormInputs>({
     mode: "onBlur",
     reValidateMode: "onChange",
+
     defaultValues: {
       pollName: "New Poll",
       options: [{name: "pizza"}, {name: "burgers"}],
       pollType: "single",
-      closingDate: `${date.getFullYear()}-${date.getMonth()}-${date.getDate() + 1}`,
-      closingTime: `${date.getHours() + 1}:${String(date.getMinutes()).padStart(2, "0")}`,
+      closingTime: `${defaultDateAndTime.getHours() == 23 ? "00" : defaultDateAndTime.getHours()}:${String(defaultDateAndTime.getMinutes()).padStart(2, "0")}`,
+      closingDate: `${defaultDateAndTime.getFullYear()}-${String(defaultDateAndTime.getMonth() + 1).padStart(2, "0")}-${String(defaultDateAndTime.getDate()).padStart(2, "0")}`,
     },
   });
 
@@ -62,6 +64,20 @@ export function CreatePoll() {
 
   const pollNameValidator = (value: string) =>
     value.trim().length >= 3 || "Poll name must have at least 3 characters";
+
+  const closeDateValidator = (closingTime: string, formValues: FormInputs) => {
+    const closingDate = formValues.closingDate;
+
+    const InputedDateAndTime = new Date(`${closingDate}T${closingTime}`);
+
+    const NowDate = new Date();
+
+    if (InputedDateAndTime < NowDate) {
+      return "Date and time must be in future";
+    }
+
+    return true;
+  };
 
   return (
     <div className={style.creatorContainer}>
@@ -178,7 +194,10 @@ export function CreatePoll() {
             <input
               type='date'
               id='date'
-              {...register("closingDate")}
+              {...register("closingDate", {
+                required: true,
+                deps: "closingTime",
+              })}
               className={`${style.card}`}
             />
           </div>
@@ -189,10 +208,25 @@ export function CreatePoll() {
             <input
               type='time'
               id='time'
-              {...register("closingTime")}
+              {...register("closingTime", {
+                required: true,
+                validate: closeDateValidator,
+              })}
               className={`${style.card}`}
+              aria-describedby={
+                errors.closingTime ? "timeDateError" : undefined
+              }
+              aria-invalid={errors.closingTime ? true : false}
             />
           </div>
+          {errors.closingTime && (
+            <p id='timeDateError'>
+              <span>
+                <i className='fa-solid fa-circle-exclamation'></i>
+              </span>{" "}
+              {errors.closingTime.message}
+            </p>
+          )}
         </fieldset>
         {/* suggest options  */}
         <div className={style.card}>
