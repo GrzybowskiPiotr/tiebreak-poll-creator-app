@@ -25,7 +25,7 @@ export const poll = pgTable(
     user_id: text("user_id")
       .references(() => user.id, {onDelete: "cascade"})
       .notNull(),
-    title: varchar({length: 100}).notNull(),
+    title: varchar({length: 120}).notNull(),
     max_choices: integer("max_choices").notNull(),
     close_at: timestamp({withTimezone: true}).notNull(),
     suggestions_enabled: boolean().default(false).notNull(),
