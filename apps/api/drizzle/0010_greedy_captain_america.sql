@@ -1,0 +1,1 @@
+ALTER TABLE "poll" ALTER COLUMN "title" SET DATA TYPE varchar(120);

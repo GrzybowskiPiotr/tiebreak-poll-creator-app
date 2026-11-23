@@ -4,8 +4,9 @@ import {useFieldArray, useForm, useWatch, type Control} from "react-hook-form";
 import {OptionInput} from "../../components/ui/OptionInput/OptionInput";
 import {PillButton} from "../../components/ui/PillButton/PillButton";
 import {PillButtonLink} from "../../components/ui/PillButtonLink/PillButtonLink";
+import {sendPoll} from "../../features/polls/api/pollsApi";
+import type {CreatePollPayload} from "../../features/polls/types/poll.types";
 import style from "./CreatePoll.module.css";
-
 interface FormInputs {
   pollName: string;
   options: {name: string}[];
@@ -26,6 +27,23 @@ function TextAreaWatch({control}: {control: Control<FormInputs>}) {
 
 const defaultDateAndTime = new Date();
 defaultDateAndTime.setHours(defaultDateAndTime.getHours() + 1);
+
+async function submitCallback(formData: FormInputs) {
+  const closeAt = new Date(
+    `${formData.closingDate}T${formData.closingTime}`,
+  ).toISOString();
+
+  const CreatePollPayload: CreatePollPayload = {
+    title: formData.pollName,
+    pollType: formData.pollType,
+    options: formData.options,
+    suggestionsEnabled: formData.suggestions,
+    closeAt: closeAt,
+  };
+  const response = await sendPoll(CreatePollPayload);
+  console.log(response.ok);
+  console.log(response);
+}
 
 export function CreatePoll() {
   const {
@@ -83,7 +101,7 @@ export function CreatePoll() {
     <div className={style.creatorContainer}>
       <h1>Make a new poll</h1>
       <h2>Get the crew togetther and let them decide.</h2>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <form onSubmit={handleSubmit(submitCallback)}>
         <div className={style.card}>
           <h3 className={style.title}>The question</h3>
           <label htmlFor='pollName'>
